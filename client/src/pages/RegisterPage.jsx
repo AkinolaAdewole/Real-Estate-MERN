@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import "../styles/Register.scss";
+import Navbar from "../components/Navbar";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +54,9 @@ const RegisterPage = () => {
   }
 
   return (
-    <div className="register">
+   <div>
+    <Navbar />
+     <div className="register">
       <div className="register_content">
         <form className="register_content_form" onSubmit={handleSubmit}>
           <input
@@ -125,6 +128,7 @@ const RegisterPage = () => {
         <a href="/login">Already have an account? Log In Here</a>
       </div>
     </div>
+   </div>
   );
 };
 

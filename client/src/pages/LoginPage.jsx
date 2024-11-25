@@ -3,6 +3,7 @@ import "../styles/Login.scss"
 import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import Navbar from "../components/Navbar";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -43,6 +44,8 @@ const LoginPage = () => {
   }
 
   return (
+    <div>
+          <Navbar />
     <div className="login">
       <div className="login_content">
         <form className="login_content_form" onSubmit={handleSubmit}>
@@ -65,6 +68,8 @@ const LoginPage = () => {
         <a href="/register">Don't have an account? Sign In Here</a>
       </div>
     </div>
+    </div>
+
   );
 };
 
