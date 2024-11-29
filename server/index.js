@@ -12,11 +12,23 @@ const bookingRoutes = require("./routes/booking.js");
 const userRoutes = require("./routes/user.js"); 
 
 // Middleware Setup
-app.use(cors()); 
+app.use(cors());
+// app.use(cors({
+//     origin: [""],
+//     methods: ["POST", "GET"],
+//     credentials: true
+//   }
+// )); 
 app.use(express.json()); 
 app.use(express.static("public")); 
 
 /* ROUTES */
+app.get('/auth/login',(req,res)=>{
+  res.send('Working! Server is ready')
+});
+app.get('/',(req,res)=>{
+  res.send('Working! Server is ready')
+});
 app.use("/auth", authRoutes); 
 app.use("/properties", listingRoutes); 
 app.use("/bookings", bookingRoutes); 

@@ -25,8 +25,11 @@ const RegisterPage = () => {
   const [passwordMatch, setPasswordMatch] = useState(true)
 
   useEffect(() => {
-    setPasswordMatch(formData.password === formData.confirmPassword || formData.confirmPassword === "")
-  })
+    setPasswordMatch(
+      formData.password === formData.confirmPassword || formData.confirmPassword === ""
+    );
+  }, [formData.password, formData.confirmPassword]);
+  
 
   const navigate = useNavigate()
 
