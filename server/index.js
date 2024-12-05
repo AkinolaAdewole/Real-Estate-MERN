@@ -57,7 +57,8 @@ app.use("/properties", listingRoutes);
 app.use("/bookings", bookingRoutes); 
 app.use("/users", userRoutes); 
 
-const PORT = 3001; 
+const PORT = process.env.PORT || 3300;
+
 
 // Connect to the MongoDB database using Mongoose
 mongoose
