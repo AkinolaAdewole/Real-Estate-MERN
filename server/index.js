@@ -57,7 +57,7 @@ app.use("/properties", listingRoutes);
 app.use("/bookings", bookingRoutes); 
 app.use("/users", userRoutes); 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8214;
 // const PORT = 3001
 
 
