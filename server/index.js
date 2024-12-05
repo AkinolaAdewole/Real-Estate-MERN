@@ -70,7 +70,7 @@ mongoose
   })
   .then(() => {
     // If the connection is successful, start the server
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+    app.listen(PORT, '0.0.0.0', () => console.log(`Server Port: ${PORT}`));
     console.log(`MongoDB connected`);
   })
   .catch((err) => console.log(`${err} did not connect`)); // If there's an error connecting to MongoDB, log the error
