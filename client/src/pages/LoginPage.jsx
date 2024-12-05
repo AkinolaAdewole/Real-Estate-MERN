@@ -4,6 +4,7 @@ import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import Navbar from "../components/Navbar";
+import axios from 'axios';
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,34 +15,31 @@ const LoginPage = () => {
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
     try {
-      const response = await fetch ("https://infinity-palace-akinolaadewole-akinola-adewoles-projects.vercel.app/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-      })
-
-      /* Get data after fetching */
-      const loggedIn = await response.json()
-
+      // Perform POST request using axios
+      const response = await axios.post(
+        "https://infinity-palace.vercel.app/auth/login",
+        { email, password } // Automatically stringifies data and sets the content-type
+      );
+  
+      // The response data will be available under response.data
+      const loggedIn = response.data;
+  
       if (loggedIn) {
-        dispatch (
+        dispatch(
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token
           })
-        )
-        navigate("/")
+        );
+        navigate("/");
       }
-
     } catch (err) {
-      console.log("Login failed", err.message)
+      console.log("Login failed", err.message);
     }
-  }
+  };
 
   return (
     <div>
